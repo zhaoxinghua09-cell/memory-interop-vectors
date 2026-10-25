@@ -37,14 +37,16 @@ reviewer can open the official source and verify it independently.
 
 ## 3. Prior QSR — the record-retention rule before QMSR
 
-- **Historical source**: eCFR point-in-time version of 21 CFR Part 820
-  (pre-QMSR) —
-  https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820
+- **Historical source**: the prior Quality System Regulation (pre-QMSR) text
+  of 21 CFR Part 820, available in eCFR point-in-time / historical versions
+  (the current eCFR Part 820, linked above, is the QMSR text that superseded
+  it).
 - **Controlling text**: records required by the part were to be retained for
   a period equivalent to the design and expected life of the device, but in
   no case less than **2 years** from the date of release for commercial
   distribution. QMSR superseded that record-retention rule with ISO 13485
-  Clause 4.2.5 incorporated by reference.
+  Clause 4.2.5 incorporated by reference, which carries the same two-year
+  floor.
 
 ## 4. GDPR — Article 17(3)(b) (erasure boundary; explicitly named in charter §3)
 
