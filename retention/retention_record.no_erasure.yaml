@@ -1,0 +1,30 @@
+# Deliberately incomplete: the erasure boundary (GDPR 17(3)(b)) is missing.
+# check_retention.py must FAIL on the erasure boundary.
+record:
+  id: "retention-item6-no-erasure"
+  identity:
+    owner: "manufacturer-operator"
+    revision: "r3"
+    revision_of: "retention-item6-no-erasure"
+  changes:
+    - at: "2026-05-02"
+      by: "regulatory-officer"
+      authority: "QMSR change-control"
+      prior_value: "old citation"
+      current_value: "new citation"
+  approval:
+    approved_by: "quality-manager"
+  retention:
+    in_charter_section_3: false
+    legs:
+      - regime: "EU MDR 2017/745 Article 10(8)"
+        minimum_years: 10
+        in_charter_section_3: false
+      - regime: "US QMSR: 21 CFR Part 820 incorporating ISO 13485 Clause 4.2.5"
+        minimum_years: 2
+        in_charter_section_3: false
+  erasure:
+    in_charter_section_3: false
+    regime: null
+  retrievability:
+    produced_without_reconstruction: true

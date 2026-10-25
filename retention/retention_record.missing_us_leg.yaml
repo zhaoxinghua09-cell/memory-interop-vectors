@@ -1,0 +1,27 @@
+# Deliberately incomplete: the US retention leg is missing (only EU MDR).
+# check_retention.py must FAIL on the US leg.
+record:
+  id: "retention-item6-missing-us"
+  identity:
+    owner: "manufacturer-operator"
+    revision: "r3"
+    revision_of: "retention-item6-missing-us"
+  changes:
+    - at: "2026-05-02"
+      by: "regulatory-officer"
+      authority: "QMSR change-control"
+      prior_value: "old citation"
+      current_value: "new citation"
+  approval:
+    approved_by: "quality-manager"
+  retention:
+    in_charter_section_3: false
+    legs:
+      - regime: "EU MDR 2017/745 Article 10(8)"
+        minimum_years: 10
+        in_charter_section_3: false
+  erasure:
+    in_charter_section_3: true
+    regime: "GDPR Article 17(3)(b)"
+  retrievability:
+    produced_without_reconstruction: true
