@@ -48,7 +48,7 @@ record:
         in_charter_section_3: false
       - regime: "US QMSR: 21 CFR Part 820 incorporating ISO 13485 Clause 4.2.5"
         obligation: "records retention; §820.35 is record control, not the period"
-        minimum_years: 2                  # from release for commercial distribution; not less than device life
+        minimum_years: 2                  # not less than 2 yrs from device release; at least device lifetime (ISO 13485 4.2.5)
         prior_rule: "the prior QSR record-retention rule"
         in_charter_section_3: false
 

@@ -29,7 +29,11 @@ reviewer can open the official source and verify it independently.
   certain records..." — i.e. §820.35 is a record-control provision added
   **to** ISO 13485 Clause 4.2.5 and does not itself state the retention period.
 - **Where the period now lives**: ISO 13485:2016 Clause 4.2.5 (Control of
-  records), incorporated via §820.7.
+  records), incorporated via §820.7. It requires records to be retained for
+  at least the lifetime of the medical device as defined by the organization,
+  or as specified by applicable regulatory requirements, **but not less than
+  two years from the medical device release by the organization** — the same
+  two-year floor the prior QSR carried.
 
 ## 3. Prior QSR — the record-retention rule before QMSR
 
