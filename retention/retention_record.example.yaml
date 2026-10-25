@@ -24,7 +24,7 @@ record:
   changes:
     - at: "2026-05-02"
       by: "regulatory-officer"
-      authority: "QMSR change-control (21 CFR 820.40 / ISO 13485 4.2.4)"
+      authority: "ISO 13485 4.2.4 (document control), incorporated via 21 CFR 820.10 (former QSR §820.40 is reserved under QMSR)"
       field: "retention_period_us"
       prior_value: "cited as 21 CFR 820.35 with incorporated ISO 13485"
       current_value: "21 CFR Part 820 incorporating ISO 13485 Cl. 4.2.5 (the retention provision that supersedes the prior QSR record-retention rule)"
