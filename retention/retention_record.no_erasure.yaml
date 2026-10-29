@@ -19,9 +19,12 @@ record:
     legs:
       - regime: "EU MDR 2017/745 Article 10(8)"
         minimum_years: 10
+        implantable_years: 15
         in_charter_section_3: false
       - regime: "US QMSR: 21 CFR Part 820 incorporating ISO 13485 Clause 4.2.5"
-        minimum_years: 2
+        minimum_years: 5
+        statutory_floor_years: 2
+        device_lifetime_years: 5
         in_charter_section_3: false
   erasure:
     in_charter_section_3: false
