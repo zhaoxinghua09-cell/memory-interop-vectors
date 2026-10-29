@@ -3,7 +3,7 @@
 #
 # This is the concrete record behind the short follow-up/correction email.
 # It shows what "the same record, served years later" must carry, and it
-# marks which leg is inside the charter's §3 crosswalk and which is not.
+# marks which leg is inside the charter's §3 crosswalk and which is outside.
 # It is machine-checkable by check_retention.py.
 
 record:
@@ -24,10 +24,10 @@ record:
   changes:
     - at: "2026-05-02"
       by: "regulatory-officer"
-      authority: "ISO 13485 4.2.4 (document control), incorporated via 21 CFR 820.10 (former QSR §820.40 is reserved under QMSR)"
+      authority: "QMSR change-control (21 CFR 820.40 / ISO 13485 4.2.4)"
       field: "retention_period_us"
       prior_value: "cited as 21 CFR 820.35 with incorporated ISO 13485"
-      current_value: "21 CFR Part 820 incorporating ISO 13485 Cl. 4.2.5 (the retention provision that supersedes the prior QSR record-retention rule)"
+      current_value: "21 CFR Part 820 incorporating ISO 13485 Cl. 4.2.5 (former 820.180(b))"
 
   # 3. Authority — who approved it, not merely who touched it
   approval:
@@ -48,8 +48,12 @@ record:
         in_charter_section_3: false
       - regime: "US QMSR: 21 CFR Part 820 incorporating ISO 13485 Clause 4.2.5"
         obligation: "records retention; §820.35 is record control, not the period"
-        minimum_years: 2                  # not less than 2 yrs from device release; at least device lifetime (ISO 13485 4.2.5)
-        prior_rule: "the prior QSR record-retention rule"
+        # § 820.35 states no period; it incorporates ISO 13485 Cl. 4.2.5 (§ 820.7).
+        # Two limbs: an absolute floor, and not less than the device's own life.
+        minimum_years: 5                  # from release for commercial distribution
+        statutory_floor_years: 2
+        device_lifetime_years: 5          # declared; the organisation must be able to source it
+        prior_rule: "former §820.180(b) under the prior QSR"
         in_charter_section_3: false
 
   # 5. Erasure boundary — GDPR Art. 17(3)(b) IS named in §3 (inside).
