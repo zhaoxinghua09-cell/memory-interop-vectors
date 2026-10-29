@@ -19,6 +19,7 @@ record:
     legs:
       - regime: "EU MDR 2017/745 Article 10(8)"
         minimum_years: 10
+        implantable_years: 15
         in_charter_section_3: false
   erasure:
     in_charter_section_3: true
