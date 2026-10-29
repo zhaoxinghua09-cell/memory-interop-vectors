@@ -1,0 +1,57 @@
+# RED TEAM variant 2 — the period clears the absolute floor but not the device's life
+# Purpose: prove the SECOND limb is actually checked. Every other field is clean.
+# The US leg declares 2 years, which is exactly the statutory floor, so a
+# floor-only gate passes it. But the device's declared expected life is 12 years,
+# and the period must not be shorter than that.
+# If check_retention.py PASSES this record, the gate still checks presence, not adequacy.
+record:
+  id: "retention-item6-redteam-lifetime"
+  title: "Retention — RED TEAM: 2-year period on a 12-year device"
+  catalogue_entry: "6. Retention (Xinghua, 22 October)"
+  event_date: "2026-03-18"
+  serving_year: 7
+
+  identity:
+    owner: "manufacturer-operator"
+    revision: "r3"
+    revision_of: "retention-item6-redteam-lifetime"
+    current_as_of: "2026-03-18"
+
+  changes:
+    - at: "2026-05-02"
+      by: "regulatory-officer"
+      authority: "QMSR change-control (21 CFR 820.40 / ISO 13485 4.2.4)"
+      field: "retention_period_us"
+      prior_value: "cited as 21 CFR 820.35 with incorporated ISO 13485"
+      current_value: "21 CFR Part 820 incorporating ISO 13485 Cl. 4.2.5 (former 820.180(b))"
+
+  approval:
+    approved_by: "quality-manager"
+    on: "2026-03-18"
+    basis: "MDR 2017/745 Art. 10; 21 CFR Part 820"
+
+  retention:
+    in_charter_section_3: false
+    legs:
+      - regime: "EU MDR 2017/745 Article 10(8)"
+        obligation: "technical documentation available to competent authorities"
+        minimum_years: 10
+        implantable_years: 15
+        in_charter_section_3: false
+      - regime: "US QMSR: 21 CFR Part 820 incorporating ISO 13485 Clause 4.2.5"
+        obligation: "records retention; §820.35 is record control, not the period"
+        minimum_years: 2                  # clears the 2-year floor ...
+        statutory_floor_years: 2
+        device_lifetime_years: 12         # ... but the device lives 12 years
+        prior_rule: "former §820.180(b) under the prior QSR"
+        in_charter_section_3: false
+
+  erasure:
+    in_charter_section_3: true
+    regime: "GDPR Article 17(3)(b)"
+    effect: "right to erasure disapplied to the extent processing is necessary for a legal obligation"
+    store_must_show: "what it kept is what the obligation covers; what it removed is outside it"
+
+  retrievability:
+    produced_without_reconstruction: true
+    survives: ["agent upgrade", "store migration", "format revision"]
