@@ -57,6 +57,60 @@ def check(rec):
     add("LGD-II", "EU retention leg (MDR 10(8)) not explicitly named in §3", bool(eu) and eu[0].get("in_charter_section_3") is False)
     add("LGD-II", "US retention leg (QMSR / ISO 13485) not explicitly named in §3", bool(us) and us[0].get("in_charter_section_3") is False)
 
+    # ---- ADEQUACY (added 2026-10-29 after red-team) ----
+    # v1 of this gate checked only that a `minimum_years` field EXISTED.
+    # Red-team proof: setting EU 10→3, implantable 15→3, US 2→1 still produced
+    # "9 checks, 0 failed". The gate was falsifiable in form and unfalsifiable
+    # in substance — it was checking presence, not adequacy, which is exactly
+    # the defect this catalogue entry exists to name.
+    #
+    # The floors are hard-coded on purpose: the criterion belongs to the law,
+    # not to the record being checked. Letting the record declare its own floor
+    # would be self-certification (cf. §2.2 OCSP "unknown" not being "good").
+    #   EU  MDR 2017/745 Art. 10(8): >= 10 years; >= 15 for implantables
+    #   US  21 CFR 820.35 incorporates ISO 13485 Cl. 4.2.5 by reference
+    #       (§ 820.7), which sets the period; § 820.35 itself states no period.
+    EU_FLOOR, EU_IMPLANT_FLOOR, US_FLOOR = 10, 15, 2
+
+    def floor_check(label, leg, key, floor):
+        v = leg.get(key) if leg else None
+        ok = isinstance(v, int) and v >= floor
+        add("LGD-II", f"{label} >= {floor} years (statutory floor)",
+            ok, f"declared {v!r}")
+
+    floor_check("EU retention period", eu[0] if eu else None, "minimum_years", EU_FLOOR)
+    floor_check("EU implantable period", eu[0] if eu else None, "implantable_years", EU_IMPLANT_FLOOR)
+    floor_check("US retention period", us[0] if us else None, "minimum_years", US_FLOOR)
+
+    # ---- SECOND LIMB (added 2026-10-29, closing the gap flagged as 待核实) ----
+    # The US period is not only ">= 2 years"; it is also "not less than the
+    # lifetime of the device as defined by the organization". The first red-team
+    # round only covered the floor, so a record declaring a 2-year period for a
+    # 12-year implantable device still passed — the same presence-vs-adequacy
+    # defect, one limb down.
+    #
+    # VERIFIED 2026-10-29 against the eCFR text of § 820.35 (Cornell LII mirror,
+    # https://www.law.cornell.edu/cfr/text/21/820.35): the section opens
+    # "In addition to the requirements of Clause 4.2.5 in ISO 13485 (incorporated
+    # by reference, see § 820.7), Control of Records, ..." and then lists only
+    # what certain records must contain. It states NO retention period.
+    #
+    # NOT VERIFIED: the verbatim wording of ISO 13485 Cl. 4.2.5 (paywalled).
+    # Therefore this check compares the declared retention against the DECLARED
+    # device lifetime; it does not certify the lifetime figure itself. An
+    # implementer must be able to show where the lifetime came from.
+    def lifetime_check(leg):
+        if not leg:
+            add("LGD-II", "US retention >= device expected life", False, "no US leg")
+            return
+        life = leg.get("device_lifetime_years")
+        keep = leg.get("minimum_years")
+        ok = isinstance(life, int) and isinstance(keep, int) and keep >= life
+        add("LGD-II", "US retention >= device expected life", ok,
+            f"retention {keep!r}, device life {life!r}")
+
+    lifetime_check(us[0] if us else None)
+
     erasure = get(rec, ["record", "erasure"]) or {}
     erasure_ok = "17(3)(b)" in str(erasure.get("regime", "")) and erasure.get("in_charter_section_3") is True
     add("LGD-II", "erasure boundary (GDPR 17(3)(b), explicitly named in §3)", erasure_ok)
