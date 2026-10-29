@@ -1,0 +1,55 @@
+# RED TEAM variant 1 — retention period deliberately shortened
+# Purpose: does the gate actually check the retained period, or only that the
+# field exists? EU floor is 10 years (15 for implantables). This record claims 3.
+# If check_retention.py PASSES this, the gate checks presence, not adequacy.
+record:
+  id: "retention-item6-demo"
+  title: "Retention — and what the same record has to mean at the end of it"
+  catalogue_entry: "6. Retention (Xinghua, 22 October)"
+  event_date: "2026-03-18"
+  serving_year: 7
+
+  identity:
+    owner: "manufacturer-operator"
+    revision: "r3"
+    revision_of: "retention-item6-demo"
+    current_as_of: "2026-03-18"
+
+  changes:
+    - at: "2026-05-02"
+      by: "regulatory-officer"
+      authority: "QMSR change-control (21 CFR 820.40 / ISO 13485 4.2.4)"
+      field: "retention_period_us"
+      prior_value: "cited as 21 CFR 820.35 with incorporated ISO 13485"
+      current_value: "21 CFR Part 820 incorporating ISO 13485 Cl. 4.2.5 (former 820.180(b))"
+
+  approval:
+    approved_by: "quality-manager"
+    on: "2026-03-18"
+    basis: "MDR 2017/745 Art. 10; 21 CFR Part 820"
+
+  retention:
+    in_charter_section_3: false
+    legs:
+      - regime: "EU MDR 2017/745 Article 10(8)"
+        obligation: "technical documentation available to competent authorities"
+        minimum_years: 3
+        implantable_years: 3
+        in_charter_section_3: false
+      - regime: "US QMSR: 21 CFR Part 820 incorporating ISO 13485 Clause 4.2.5"
+        obligation: "records retention; §820.35 is record control, not the period"
+        minimum_years: 1
+        statutory_floor_years: 2
+        device_lifetime_years: 5
+        prior_rule: "former §820.180(b) under the prior QSR"
+        in_charter_section_3: false
+
+  erasure:
+    in_charter_section_3: true
+    regime: "GDPR Article 17(3)(b)"
+    effect: "right to erasure disapplied to the extent processing is necessary for a legal obligation"
+    store_must_show: "what it kept is what the obligation covers; what it removed is outside it"
+
+  retrievability:
+    produced_without_reconstruction: true
+    survives: ["agent upgrade", "store migration", "format revision"]
