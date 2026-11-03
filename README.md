@@ -17,7 +17,7 @@ and falsifiable rather than a script that always reports success.
 ## How to verify
 
 ```bash
-# complete example (expect 9/9 PASS, exit 0)
+# complete example (expect 13/13 PASS, exit 0; checker prints "13 checks, 0 failed")
 python retention/check_retention.py retention/retention_record.example.yaml
 
 # negative controls (expect FAIL, exit 1)
