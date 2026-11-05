@@ -1,0 +1,11 @@
+# Step 1 CREATE (negative control) — no explicit revision identity
+scenario: {step: 1, name: create, kind: negative_control}
+record:
+  id: "s1-create-neg"
+  event_date: "2026-03-18"
+  identity:
+    owner: "manufacturer-operator"
+    current_as_of: "2026-03-18"
+  approval:
+    approved_by: "quality-manager"
+    on: "2026-03-18"

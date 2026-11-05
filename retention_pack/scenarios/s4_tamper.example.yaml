@@ -1,0 +1,11 @@
+# Step 4 TAMPER DETECTION (positive) — integrity verified at rest, not only at the front door
+scenario: {step: 4, name: tamper_detect, kind: positive}
+record:
+  id: "s4-tamper-demo"
+  integrity:
+    digest_algorithm: "sha-256"
+    digest: "sha256:1a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f809"
+    verification: "periodic at-rest re-computation"
+    frequency: "quarterly"
+  storage:
+    tamper_indicators: ["append-only event log", "snapshot comparison on read"]

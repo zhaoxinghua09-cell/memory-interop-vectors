@@ -1,0 +1,13 @@
+# Step 1 CREATE (positive) — a record written so its identity survives time
+scenario: {step: 1, name: create, kind: positive}
+record:
+  id: "s1-create-demo"
+  event_date: "2026-03-18"
+  identity:
+    owner: "manufacturer-operator"
+    revision: "r1"
+    current_as_of: "2026-03-18"
+  approval:
+    approved_by: "quality-manager"
+    on: "2026-03-18"
+    basis: "MDR 2017/745 Art. 10; 21 CFR Part 820"

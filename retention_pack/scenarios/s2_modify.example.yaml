@@ -1,0 +1,11 @@
+# Step 2 MODIFY (positive) — every change attributable, prior value recoverable
+scenario: {step: 2, name: modify, kind: positive}
+record:
+  id: "s2-modify-demo"
+  changes:
+    - at: "2026-05-02"
+      by: "regulatory-officer"
+      authority: "QMSR change-control (21 CFR 820.40 / ISO 13485 4.2.4)"
+      field: "retention_period_us"
+      prior_value: "cited as 21 CFR 820.35 with incorporated ISO 13485"
+      current_value: "21 CFR Part 820 incorporating ISO 13485 Cl. 4.2.5"

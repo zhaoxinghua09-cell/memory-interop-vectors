@@ -1,0 +1,9 @@
+# Step 2 MODIFY (negative control) — a change with no named authority or prior value
+scenario: {step: 2, name: modify, kind: negative_control}
+record:
+  id: "s2-modify-neg"
+  changes:
+    - at: "2026-05-02"
+      by: "regulatory-officer"
+      field: "retention_period_us"
+      current_value: "21 CFR Part 820 incorporating ISO 13485 Cl. 4.2.5"

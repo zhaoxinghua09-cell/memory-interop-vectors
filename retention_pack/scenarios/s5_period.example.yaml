@@ -1,0 +1,12 @@
+# Step 5 RETENTION PERIOD (positive) — boundary computable, serving within it
+scenario: {step: 5, name: period_verify, kind: positive}
+record:
+  id: "s5-period-demo"
+  retention:
+    legs:
+      - regime: "EU MDR 2017/745 Article 10(8)"
+        minimum_years: 10
+        last_device_on_market: "2020-06-30"
+  serving:
+    date: "2026-11-05"
+    purpose: "competent-authority inspection"

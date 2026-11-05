@@ -1,0 +1,12 @@
+# Step 5 RETENTION PERIOD (negative control) — served past expiry, no documented legal hold
+scenario: {step: 5, name: period_verify, kind: negative_control}
+record:
+  id: "s5-period-neg"
+  retention:
+    legs:
+      - regime: "EU MDR 2017/745 Article 10(8)"
+        minimum_years: 10
+        last_device_on_market: "2015-01-01"
+  serving:
+    date: "2026-11-05"
+    purpose: "commercial analytics"

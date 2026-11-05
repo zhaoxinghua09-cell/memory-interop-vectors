@@ -1,0 +1,10 @@
+# Step 3 HISTORY RESTORE (positive) — a prior revision restorable and verified
+scenario: {step: 3, name: history_restore, kind: positive}
+record:
+  id: "s3-restore-demo"
+  history:
+    - revision: "r2"
+      stored_digest: "sha256:9f2a1c4b8e7d6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b"
+      pointer: "archive/r2.yaml"
+      restored_on: "2026-10-01"
+      restored_digest_matches: true

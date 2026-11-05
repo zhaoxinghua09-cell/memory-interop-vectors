@@ -1,0 +1,10 @@
+# Step 4 TAMPER DETECTION (negative control) — integrity checked at write time only
+scenario: {step: 4, name: tamper_detect, kind: negative_control}
+record:
+  id: "s4-tamper-neg"
+  integrity:
+    digest_algorithm: "sha-256"
+    digest: "sha256:1a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f809"
+    verification: "write-time only"
+  storage:
+    tamper_indicators: []

@@ -1,0 +1,9 @@
+# Step 3 HISTORY RESTORE (negative control) — prior revision referenced but nothing stored
+scenario: {step: 3, name: history_restore, kind: negative_control}
+record:
+  id: "s3-restore-neg"
+  history:
+    - revision: "r2"
+      stored_digest: null
+      pointer: "archive/r2.yaml"
+      restored_digest_matches: null

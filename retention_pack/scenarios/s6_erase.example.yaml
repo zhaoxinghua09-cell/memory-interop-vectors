@@ -1,0 +1,13 @@
+# Step 6 ERASE VS RETAIN (positive) — conflict produces a documented resolution
+scenario: {step: 6, name: erase_vs_retain, kind: positive}
+record:
+  id: "s6-erase-demo"
+  erasure:
+    request_date: "2026-09-01"
+    requester: "data-subject"
+    regime: "GDPR Article 17"
+  resolution:
+    action: "retain with restricted processing"
+    legal_basis: "MDR 2017/745 Article 10(8) retention obligation"
+    decided_by: "data-protection-officer"
+    decided_on: "2026-09-15"
